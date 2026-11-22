@@ -1,3 +1,8 @@
+// A tiny stack virtual machine: 32-bit wrapping ints, 256-word memory,
+// 256-deep data stack, 64-deep call stack, 1M steps, 64 KiB output.
+// Traps: 2 underflow, 3 overflow, 4 div by zero, 5 bad opcode, 6 bad
+// address, 7 call overflow, 8 empty return, 9 pc/immediate out of range,
+// 10 step limit, 11 output limit.
 import { readFileSync as R, writeFileSync as W, mkdirSync as M } from 'node:fs';
 import { join as J } from 'node:path';
 function run(p: Buffer, q: Buffer) {
